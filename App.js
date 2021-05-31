@@ -30,15 +30,18 @@ export default function App() {
       case '/': 
         setCurrentNumber((fistNumber / lastNumber).toString())
         return
+      case '%': 
+        setCurrentNumber(((fistNumber/100) * lastNumber).toString())
+        return
     }
   }
 
   function handleInput(buttonPressed){
     console.log(buttonPressed) // Mostra no Console a tecla pressionada
-    if(buttonPressed === '+' | buttonPressed === "-" | buttonPressed === "x" | buttonPressed === "/" ){
+    if(buttonPressed === '+' | buttonPressed === "-" | buttonPressed === "x" | buttonPressed === "/" | buttonPressed ==="%"){
       setCurrentNumber(currentNumber + " " + buttonPressed + " ")
       return
-    }
+    }    
     switch(buttonPressed){
       case 'DEL':
         setCurrentNumber(currentNumber.substring(0, (currentNumber.length - 1)))
@@ -54,6 +57,7 @@ export default function App() {
       case '+/-':
         setCurrentNumber(currentNumber * (-1)) 
         return
+        
     }
 
     setCurrentNumber(currentNumber + buttonPressed)
